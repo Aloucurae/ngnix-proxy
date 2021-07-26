@@ -33,7 +33,7 @@ echo "    server {" >>nginx.conf
 echo "        listen 80;" >>nginx.conf
 echo "        server_name $VIRTUAL_HOST;" >>nginx.conf
 echo "        location / {" >>nginx.conf
-echo "            proxy_pass http://$hostName" >>nginx.conf
+echo "            proxy_pass http://$hostName;" >>nginx.conf
 echo "        }" >>nginx.conf
 echo "    }" >>nginx.conf
 echo "}" >>nginx.conf
@@ -41,3 +41,7 @@ echo "}" >>nginx.conf
 cat nginx.conf
 rm /etc/nginx/nginx.conf
 cp ./nginx.conf /etc/nginx/
+
+nginx -t
+service nginx restart
+sleep infinity
